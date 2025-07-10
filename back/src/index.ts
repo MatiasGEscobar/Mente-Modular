@@ -1,11 +1,15 @@
-import express from "express";
+import { PORT } from "./config/envs";
+import server from "./server";
+import "reflect-metadata";
+import { AppDataSource } from "./config/data-source";
 
-require('dotenv').config();
-
-const PORT = process.env.PORT || 3000;
-
-const server = express();
-
-server.listen(PORT, () => {
-    console.log(`Server is running on port ${PORT}`);
+AppDataSource.initialize()
+.then( res => {
+    console.log("Database connected");
+    server.listen(PORT, () => {
+        console.log(`Server is running on port ${PORT}`)
+    });
+})
+.catch((error) => {
+    console.log("Error connecting to database", error);
 });
