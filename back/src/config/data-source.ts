@@ -33,6 +33,6 @@ export const AppDataSource = new DataSource({
     Progress,
     AIResponse
   ],
-  migrations: ["src/migrations/**/*.ts"],
+  migrations: ["dist/migrations/**/*.js"],
   subscribers: [],
 });
