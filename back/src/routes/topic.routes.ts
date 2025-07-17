@@ -4,9 +4,9 @@ import { Topic } from "../entities/Topic";
 import { Subject } from "../entities/Subject";
 import { Level } from "../entities/Level";
 
-const router = Router();
+const topicRouter: Router = Router();
 
-router.get("/", async (req, res) => {
+topicRouter.get("/", async (req, res) => {
   try {
     const topicRepo = AppDataSource.getRepository(Topic);
 
@@ -25,4 +25,4 @@ router.get("/", async (req, res) => {
   }
 });
 
-export default router;
+export default topicRouter;

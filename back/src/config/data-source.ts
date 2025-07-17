@@ -1,4 +1,3 @@
-import "reflect-metadata";
 import { DataSource } from "typeorm";
 import { DB_HOST, DB_PORT, DB_USERNAME, DB_NAME, DB_PASSWORD } from "./envs";
 import { User } from "../entities/User";
@@ -19,7 +18,8 @@ export const AppDataSource = new DataSource({
   username: DB_USERNAME,
   password: DB_PASSWORD,
   database: DB_NAME,
-  synchronize: false, // IMPORTANTE: desactiva esto en producción
+  synchronize: true, // IMPORTANTE: desactiva esto en producción
+  //dropSchema: true,
   logging: false,
   entities: [
     User,
